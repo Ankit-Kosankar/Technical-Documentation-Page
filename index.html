@@ -8,6 +8,200 @@
     <title>Technical Documentation Page of JAVA</title>
 </head>
 <body>
-    
+    <!--Navbar-->
+    <nav id="navbar">
+        <header class="nav-header">JAVA Documentation</header>
+        <a class="nav-link" href="#Introduction">Introduction</a>
+        <a class="nav-link" href="#Java_Overview">Java Overview</a>
+        <a class="nav-link" href="#Hello_World">Hello World</a>
+        <a class="nav-link" href="#Function_Declaration">Function Declaration</a>
+        <a class="nav-link" href="#JSP">JSP</a>
+        <a class="nav-link" href="#SERVLET">SERVLET</a>
+        <a class="nav-link" href="#JDBC">JDBC</a>
+    </nav>
+
+    <!--Main Doc element-->
+    <main id="main-doc">
+        <div>
+            <!--Element 1-->
+            <section id="Introduction" class="main-section">
+                <header >Introduction</header>
+                <p>Java is a programming language which you can use to build computer applications.
+                    Java is free to use for personal use and is free for devlopers.</p>
+            </section>
+            <!--Element 2-->
+            <section id="Java_Overview" class="main-section">
+                <header>Java Overview</header>
+                <p>Java is a object orinented programming meaning that most of the data that is represented in the form of object. 
+                    It is not purely object orinented because it has predefined data types like int, boolean, long, double etc.
+                    For a java program to run on your machine you need to have JDK installed in your system.
+                </p>
+                <p> JDK i.e Java Development Kit comes with two things
+                    <ul>
+                        <li>JDK (Java Development Kit</li>
+                        <p>Compiles your java code into bytecode your example.java file is converted into 
+                            example.exe file
+                        </p>
+                        <li>JRE (Java Runtime Environment) </li>
+                        <p>take the example.exe file and it converts that
+                            into machine readle code and provides you with a Output.</p>
+                    </ul>
+                </p>
+
+                
+
+                <!--Element 3-->
+            <section id="Hello_World" class="main-section">
+                <header >Hello World</header>
+                <code>
+                        public class JavaExample {
+                            System.out.println("Hello World");
+                            }
+                </code>
+            </section>
+
+            <!--Element 4-->
+            <section id="Function_Declaration" class="main-section">
+                <header>Function Declaration</header>
+                <p>A function definition (also called a function declaration, or function statement)
+                     consists of the function keyword, followed by:
+                </p>
+                <ul>
+                    <li>The name of the method.</li>
+                    <li> A list of arguments to the method, enclosed in parentheses and separated by commas. </li>
+                    <li> The JAVA statements that define the function, enclosed in curly brackets, { }. </li>
+                </ul>
+                <code>
+                    public class Main {
+                        public static void main(){
+                            myMethod(3,4);
+                        }
+                        static void myMethod(int num1, num2) {
+                            System.out.println(num1+num2);    
+                        }
+                      }
+                </code>
+            </section>
+
+            <!--Element 5-->
+            <section id="JSP" class="main-section">
+                <header>JSP</header>
+                <p>SP technology is used to create web application just like Servlet technology.
+                     It can be thought of as an extension to Servlet because it provides more 
+                     functionality than servlet such as expression language,
+                      JSTL, etc.
+                </p>
+                <p>A JSP page consists of HTML tags and JSP tags. 
+                    The JSP pages are easier to maintain than Servlet because we can separate designing and development.
+                    It provides some additional features such as Expression Language, Custom Tags, etc.
+                </p>
+                <code>
+                    &lt;html&gt;  
+                        &lt;body&gt;  
+                        <% out.print(2*5); %>  
+                        &lt;body&gt;  
+                        &lt;/html&gt;  
+                </code>
+            </section>
+            <!--Element 6-->
+            <section id="SERVLET" class="main-section">
+                <header>SERVLET</header>
+                <p>A servlet is a small Java program that runs within a Web server.
+                     Servlets receive and respond to requests from Web clients, 
+                     usually across HTTP, the HyperText Transfer Protocol.
+                     To implement this interface, you can write a generic servlet
+                     that extends javax.servlet.GenericServlet or an HTTP servlet 
+                     that extends javax.servlet.http.HttpServlet.
+                 </p>
+                 <p>This interface defines methods to initialize a servlet, to service requests,
+                    and to remove a servlet from the server. 
+                    These are known as life-cycle methods and 
+                    are called in the following sequence:
+                 </p>
+                 <ol>
+                     <li>The servlet is constructed, then initialized with the init method. </li>
+                     <li>Any calls from clients to the service method are handled. </li>
+                     <li>The servlet is taken out of service, then destroyed with the destroy method, then garbage collected and finalized. </li>
+                 </ol>
+                 <code>
+                    // Import required java libraries
+                    import java.io.*;
+                    import javax.servlet.*;
+                    import javax.servlet.http.*;
+                    
+                    // Extend HttpServlet class
+                    public class HelloWorld extends HttpServlet {
+                     
+                       private String message;
+                    
+                       public void init() throws ServletException {
+                          // Do required initialization
+                          message = "Hello World";
+                       }
+                    
+                       public void doGet(HttpServletRequest request, HttpServletResponse response)
+                          throws ServletException, IOException {
+                          
+                          // Set response content type
+                          response.setContentType("text/html");
+                    
+                          // Actual logic goes here.
+                          PrintWriter out = response.getWriter();
+                          out.println("<h1>" + message + "</h1>");
+                       }
+                    
+                       public void destroy() {
+                          // do nothing.
+                       }
+                    }
+                 </code>
+            </section>
+            <!--Element 7-->
+            <section id="JDBC" class="main-section">
+                <header>JDBC</header>
+                <p>Java Database Connectivity (JDBC) is an application programming interface (API)
+                     for the programming language Java, which defines how a client may
+                      access a database. It is a Java-based data access technology used for 
+                      Java database connectivity. It is part of the Java Standard Edition platform, 
+                      from Oracle Corporation. 
+                </p>
+                <p>
+                    It provides methods to query and update data in a database,
+                    and is oriented toward relational databases. 
+                    A JDBC-to-ODBC bridge enables connections to any ODBC-accessible
+                    data source in the Java virtual machine (JVM) host environment.
+                </p>
+                <code>
+                                        import java.sql.*;
+
+                    public class FirstExample {
+                    static final String DB_URL = "jdbc:mysql://localhost/TUTORIALSPOINT";
+                    static final String USER = "guest";
+                    static final String PASS = "guest123";
+                    static final String QUERY = "SELECT id, first, last, age FROM Employees";
+
+                    public static void main(String[] args) {
+                        // Open a connection
+                        try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+                            Statement stmt = conn.createStatement();
+                            ResultSet rs = stmt.executeQuery(QUERY);) {
+                            // Extract data from result set
+                            while (rs.next()) {
+                                // Retrieve by column name
+                                System.out.print("ID: " + rs.getInt("id"));
+                                System.out.print(", Age: " + rs.getInt("age"));
+                                System.out.print(", First: " + rs.getString("first"));
+                                System.out.println(", Last: " + rs.getString("last"));
+                            }
+                        } catch (SQLException e) {
+                             e.printStackTrace();
+                        } 
+                    }
+                    }
+                </code>
+            </section>
+        </div>
+    </main>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 </html>
